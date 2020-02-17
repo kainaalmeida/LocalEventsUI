@@ -1,0 +1,11 @@
+C:\Users\kaina\source\repos\LocalEventsUI\LocalEventsUI\LocalEventsUI\bin\Debug\netstandard2.0\LocalEventsUI.deps.json
+C:\Users\kaina\source\repos\LocalEventsUI\LocalEventsUI\LocalEventsUI\bin\Debug\netstandard2.0\LocalEventsUI.dll
+C:\Users\kaina\source\repos\LocalEventsUI\LocalEventsUI\LocalEventsUI\bin\Debug\netstandard2.0\LocalEventsUI.pdb
+C:\Users\kaina\source\repos\LocalEventsUI\LocalEventsUI\LocalEventsUI\obj\Debug\netstandard2.0\LocalEventsUI.csprojAssemblyReference.cache
+C:\Users\kaina\source\repos\LocalEventsUI\LocalEventsUI\LocalEventsUI\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\kaina\source\repos\LocalEventsUI\LocalEventsUI\LocalEventsUI\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+C:\Users\kaina\source\repos\LocalEventsUI\LocalEventsUI\LocalEventsUI\obj\Debug\netstandard2.0\LocalEventsUI.AssemblyInfoInputs.cache
+C:\Users\kaina\source\repos\LocalEventsUI\LocalEventsUI\LocalEventsUI\obj\Debug\netstandard2.0\LocalEventsUI.AssemblyInfo.cs
+C:\Users\kaina\source\repos\LocalEventsUI\LocalEventsUI\LocalEventsUI\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\kaina\source\repos\LocalEventsUI\LocalEventsUI\LocalEventsUI\obj\Debug\netstandard2.0\LocalEventsUI.dll
+C:\Users\kaina\source\repos\LocalEventsUI\LocalEventsUI\LocalEventsUI\obj\Debug\netstandard2.0\LocalEventsUI.pdb
