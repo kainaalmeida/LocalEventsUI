@@ -1,11 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LocalEventsUI.Views.MainPage"
-             Title="{Binding Title}">
+<ContentPage
+    x:Class="LocalEventsUI.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    Title="{Binding Title}"
+    NavigationPage.HasNavigationBar="False">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
-    </StackLayout>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <pancakeView:PancakeView BackgroundColor="#fe6b01" CornerRadius="0,0,30,30" />
+        <BoxView Grid.Row="1" BackgroundColor="White" />
+    </Grid>
 
 </ContentPage>

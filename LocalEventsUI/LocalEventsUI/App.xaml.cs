@@ -30,6 +30,7 @@ namespace LocalEventsUI
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<DetailPage, DetailPageViewModel>();
         }
     }
 }
