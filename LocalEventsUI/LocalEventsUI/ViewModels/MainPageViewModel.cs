@@ -1,12 +1,6 @@
 ﻿using LocalEventsUI.Models;
-using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Navigation;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LocalEventsUI.ViewModels
@@ -14,6 +8,7 @@ namespace LocalEventsUI.ViewModels
     public class MainPageViewModel : ViewModelBase
     {
         public ObservableCollection<LocalEvent> Events { get; } = new ObservableCollection<LocalEvent>();
+        public ObservableCollection<Menu> Menus { get; } = new ObservableCollection<Menu>();
 
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
@@ -23,22 +18,31 @@ namespace LocalEventsUI.ViewModels
 
         private async Task LoadEvents()
         {
-            var event01 = new LocalEvent
+            Events.Add(CreateEvent("Granite Cooking Class", "Food Court Avenue", "event01.png"));
+            Events.Add(CreateEvent("5 Kilometer Downtown Run", "Pleasant Park", "event02.png"));
+            Events.Add(CreateEvent("Granite Cooking Class", "Food Court Avenue", "event01.png"));
+            Events.Add(CreateEvent("5 Kilometer Downtown Run", "Pleasant Park", "event02.png"));
+        }
+
+        private LocalEvent CreateEvent(string title, string local, string icon)
+        {
+            return new LocalEvent
             {
-                Title = "5 Kilometer Downtown Run",
-                Local = "Pleasant Park",
-                Icon = "event01.png"
+                Title = title,
+                Local = local,
+                Icon = icon
             };
 
-            var event02 = new LocalEvent
-            {
-                Title = "Granite Cooking Class",
-                Local = "Food Court Avenue",
-                Icon = "event01.png"
-            };
+        }
 
-            Events.Add(event01);
-            Events.Add(event02);
+        private async Task LoadMenus()
+        {
+            Menus.Add(CreateMenu("ALL", "baseline_search_white_18.png"));
+            Menus.Add(CreateMenu("Music", "baseline_music_note_white_18.png"));
+            Menus.Add(CreateMenu("Meetup", "baseline_location_on_white_18.png"));
+            Menus.Add(CreateMenu("Show", "baseline_emoji_people_white_18.png"));
+            Menus.Add(CreateMenu("Sports", "baseline_sports_football_white_18.png"));
+            Menus.Add(CreateMenu("TV", "baseline_tv_white_18.png"));
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)
@@ -47,9 +51,17 @@ namespace LocalEventsUI.ViewModels
             var navMode = parameters.GetNavigationMode();
 
             if (navMode != NavigationMode.Back)
+            {
                 LoadEvents().ConfigureAwait(false);
+                LoadMenus().ConfigureAwait(false);
+            }
 
             base.OnNavigatedTo(parameters);
+        }
+
+        private Menu CreateMenu(string name, string icon)
+        {
+            return new Menu { Name = name, Icon = icon };
         }
     }
 }

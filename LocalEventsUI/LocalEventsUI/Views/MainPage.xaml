@@ -3,18 +3,142 @@
     x:Class="LocalEventsUI.Views.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     Title="{Binding Title}"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#ecf0f1"
     NavigationPage.HasNavigationBar="False">
+
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="350" />
         </Grid.RowDefinitions>
 
-        <pancakeView:PancakeView BackgroundColor="#fe6b01" CornerRadius="0,0,30,30" />
-        <BoxView Grid.Row="1" BackgroundColor="White" />
+        <pancakeView:PancakeView BackgroundColor="#fe6b01" CornerRadius="0,0,40,40">
+
+            <Grid
+                Padding="0"
+                BackgroundColor="Transparent"
+                ColumnSpacing="0"
+                RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <StackLayout
+                    Margin="40,40,40,0"
+                    Orientation="Horizontal"
+                    Spacing="0">
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        HorizontalOptions="StartAndExpand"
+                        Text="LOCAL EVENTS"
+                        TextColor="#ffbe83"
+                        VerticalOptions="Start" />
+
+                    <Image Source="baseline_person_outline_white_18.png" />
+
+                </StackLayout>
+
+                <Label
+                    Grid.Row="1"
+                    Margin="40,-10,40,0"
+                    FontAttributes="Bold"
+                    FontSize="40"
+                    Text="What's Up"
+                    TextColor="White" />
+
+                <CollectionView
+                    Grid.Row="2"
+                    Margin="20,25,20,0"
+                    BackgroundColor="Transparent"
+                    HeightRequest="80"
+                    ItemsSource="{Binding Menus}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                BorderColor="#ffa768"
+                                CornerRadius="10"
+                                HasShadow="False"
+                                WidthRequest="80">
+
+                                <StackLayout VerticalOptions="Center">
+                                    <Image HeightRequest="30" Source="{Binding Icon}" />
+                                    <Label
+                                        FontAttributes="Bold"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Name}"
+                                        TextColor="White"
+                                        VerticalTextAlignment="Center" />
+                                </StackLayout>
+
+
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </Grid>
+
+        </pancakeView:PancakeView>
+
+        <CollectionView
+            Margin="20,0,20,-50"
+            ItemsSource="{Binding Events}"
+            TranslationY="250"
+            VerticalOptions="FillAndExpand">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="30" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <pancakeView:PancakeView
+                        Padding="0,10"
+                        BackgroundColor="White"
+                        BorderColor="Transparent"
+                        BorderThickness="3"
+                        CornerRadius="40">
+
+                        <StackLayout
+                            Margin="20,20"
+                            BackgroundColor="Transparent"
+                            Orientation="Vertical"
+                            Spacing="0">
+                            <Image Aspect="AspectFit" Source="{Binding Icon}" />
+                            <Label
+                                Margin="20,0"
+                                FontAttributes="Bold"
+                                FontSize="Large"
+                                Text="{Binding Title}"
+                                TextColor="#172d47" />
+                            <Label
+                                Margin="20,0"
+                                FontSize="Medium"
+                                Text="{Binding Local}"
+                                TextColor="#172d47" />
+                        </StackLayout>
+
+
+                    </pancakeView:PancakeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.FooterTemplate>
+                <DataTemplate />
+            </CollectionView.FooterTemplate>
+        </CollectionView>
+
     </Grid>
 
 </ContentPage>
